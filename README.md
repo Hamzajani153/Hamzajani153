@@ -43,9 +43,9 @@ I'm a passionate **Python Developer** and **AI Engineer** with extensive experie
 
 ## 📫 Connect with Me
 
-- LinkedIn: [Your LinkedIn](https:www.linkedin.com/in/muhammad-hamza-401777253)
-- Email: [Your Email](mailto:descent.hamza153@gmail.com)
-- Personal Website: [Your Website](https://yourwebsite.com)
+- LinkedIn: [LinkedIn](https:www.linkedin.com/in/muhammad-hamza-401777253)
+- Email: [Email](mailto:descent.hamza153@gmail.com)
+- Personal Website: [Website](https://yourwebsite.com)
 
 ## 📈 GitHub Stats
 
