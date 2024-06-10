@@ -26,13 +26,20 @@ I'm a passionate **Python Developer** and **AI Engineer** with extensive experie
 
 ## 🌟 Projects
 
-### 1. [Project Name](https://github.com/yourusername/projectname)
-- **Description**: Brief description of the project and its significance.
-- **Technologies Used**: Python, TensorFlow, AWS, Docker
+### 1. [IoT-Based Intelligent Door](https://github.com/yourusername/iot-intelligent-door)
+- **Description**: Developed an intelligent door system that utilizes IoT sensors and cameras to enhance home security. The system incorporates object detection to identify individuals and objects near the door and sends alerts to the homeowner's mobile app.
+- **Technologies Used**: Python, TensorFlow, OpenCV, AWS IoT, Docker,FastApi,Dlib(face-recognition)
+- **Features**:
+  - Real-time object detection using a camera.
+  - Integration with AWS IoT for cloud-based monitoring and alerts.
+  - Mobile app notifications.
 
-### 2. [Project Name](https://github.com/yourusername/projectname)
-- **Description**: Brief description of the project and its significance.
-- **Technologies Used**: Python, FastAPI, PyTorch
+### 2. [Vehicle Detection System](https://github.com/yourusername/vehicle-detection-system)
+- **Description**: Developed a vehicle detection system that identifies vehicles and their license plate numbers, storing the information in a database. This system is useful for parking management, traffic monitoring, and security applications.
+- **Technologies Used**: Python, OpenCV, TensorFlow, FastAPI, DataBase, Docker
+- **Features**:
+  - Real-time vehicle detection and license plate recognition.
+  - Secure storage of vehicle data in a database.
 
 ## 📫 Connect with Me
 
