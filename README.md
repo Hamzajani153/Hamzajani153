@@ -19,7 +19,7 @@ I build **agentic AI systems** and **RAG** pipelines for real-world products. My
 
 ---
 
-## 🚀 Highlight Projects (What I actually built)
+## Highlight Projects (What I actually built)
 
 ### 1) Research Pal — Advanced **RAG** Assistant  
 **Live:** https://researchpal.co/  
@@ -54,7 +54,7 @@ I build **agentic AI systems** and **RAG** pipelines for real-world products. My
 
 ---
 
-## 🧠 Architecture Patterns I Use
+## Architecture Patterns I Use
 - **Toolformer-style tool usage** with **OpenAI function calling**  
 - **RAG pipelines** with query planning, re-ranking, and **context injection**  
 - **Self-healing workflows**: retries, fallbacks, guardrails
@@ -63,18 +63,17 @@ I build **agentic AI systems** and **RAG** pipelines for real-world products. My
 
 ---
 
-## 📚 Code & Repos (Selected)
+## Code & Repos 
 > I’m actively organizing code for public view. In the meantime:
-- 🔗 **GitHub:** https://github.com/Hamzajani153  
-- 🔗 **Research Pal (live):** https://researchpal.co/  
-- (Optional) Repos to publish soon:
-  - `agentic-voice-bot` — LangGraph multi-agent + TTS/STT + tool-calling
-  - `enterprise-rag-starter` — LangChain + FAISS/Pinecone + FastAPI
-  - `agent-tools-kit` — function-calling tool wrappers (search/db/llm)
+-  **GitHub:** https://github.com/Hamzajani153  
+-  **Research Pal (live):** https://researchpal.co/  
+- `agentic-voice-bot` — LangGraph multi-agent + TTS/STT + tool-calling
+- `enterprise-rag-starter` — LangChain + FAISS/Pinecone + FastAPI
+- `agent-tools-kit` — function-calling tool wrappers (search/db/llm)
 
 ---
 
-## 🛠️ Tech I Work With
+## Tech I Work With
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
@@ -91,8 +90,8 @@ I build **agentic AI systems** and **RAG** pipelines for real-world products. My
 
 ---
 
-## 📬 Contact
+## Contact
 - **Email:** descent.hamza153@gmail.com  
 - **LinkedIn:** https://www.linkedin.com/in/muhammad-hamza-401777253  
 - **Location:** Rawalpindi, Pakistan  
-- **Portfolio (optional):** https://your-portfolio.com
+- **Portfolio :** https://your-portfolio.com
