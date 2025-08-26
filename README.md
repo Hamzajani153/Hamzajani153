@@ -94,4 +94,4 @@ I build **agentic AI systems** and **RAG** pipelines for real-world products. My
 - **Email:** descent.hamza153@gmail.com  
 - **LinkedIn:** https://www.linkedin.com/in/muhammad-hamza-401777253  
 - **Location:** Rawalpindi, Pakistan  
-- **Portfolio :** https://your-portfolio.com
+- **Portfolio :** https://hamzajani153.github.io/Hamzajani153/
