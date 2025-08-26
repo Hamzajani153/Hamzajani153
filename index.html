@@ -1,0 +1,1126 @@
+<!--
+Muhammad Hamza - Portfolio (single-file static HTML)
+Instructions:
+1. Save this file as `index.html` in a new GitHub repository (e.g. `hamzajani153.github.io`)
+2. Commit and push to GitHub
+3. In your repo Settings > Pages, set branch to `main` (or `gh-pages`) and folder to `/ (root)`
+4. The site will be available at https://<your-github-username>.github.io/
+
+Notes:
+- This file uses Tailwind Play CDN for styling (no build step required). For production, consider running Tailwind properly.
+- Replace placeholder links (portfolio URL, resume link) with your actual hosted files.
+- Edit project contents directly in the HTML or use a generator later.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Hamza — AI Engineer | Agentic AI • RAG • LLM Orchestration</title>
+  <meta name="description" content="Muhammad Hamza — AI Engineer. Agentic AI, RAG, LangChain, LangGraph, FastAPI, AWS." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <style>
+    /* Custom styles */
+    .glass { 
+      background: rgba(255,255,255,0.05); 
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    .accent { color: #06b6d4; }
+    .gradient-text {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+    }
+    .card { 
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); 
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      border-radius: 3px;
+    }
+    /* Dark/Light mode toggle */
+    .dark-mode {
+      --bg-color: #0f172a;
+      --text-color: #f1f5f9;
+      --card-bg: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      --card-border: rgba(255,255,255,0.06);
+    }
+    .light-mode {
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --card-bg: linear-gradient(180deg, rgba(15,23,42,0.03), rgba(15,23,42,0.01));
+      --card-border: rgba(15,23,42,0.06);
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    .card-light-mode {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased leading-relaxed dark-mode">
+  <div id="particles-js" class="fixed inset-0 z-0 opacity-20"></div>
+
+  <header class="sticky top-0 z-50 backdrop-blur-lg bg-gray-900/80 border-b border-gray-800 transition-all duration-300">
+    <div class="max-w-6xl mx-auto p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-500 to-sky-500 flex items-center justify-center text-black font-bold shadow-lg">
+          <span class="text-xl">MH</span>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold">Muhammad Hamza</h1>
+          <p class="text-sm text-gray-400">AI Engineer — Agentic AI · RAG · LLM Orchestration</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+        <a href="#" class="ml-4 px-4 py-2 border border-cyan-600 text-cyan-400 rounded-md hover:bg-cyan-600 hover:text-white transition-all">
+          <i class="fas fa-download mr-2"></i>Download CV
+        </a>
+        <button id="theme-toggle" class="ml-3 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+          <i class="fas fa-sun text-yellow-400"></i>
+        </button>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-800">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden p-4 border-t border-gray-800 bg-gray-900/90 backdrop-blur-lg">
+      <nav class="flex flex-col space-y-3 text-sm">
+        <a href="#projects" class="py-2 px-3 hover:bg-gray-800 rounded">Projects</a>
+        <a href="#experience" class="py-2 px-3 hover:bg-gray-800 rounded">Experience</a>
+        <a href="#skills" class="py-2 px-3 hover:bg-gray-800 rounded">Skills</a>
+        <a href="#testimonials" class="py-2 px-3 hover:bg-gray-800 rounded">Testimonials</a>
+        <a href="#contact" class="py-2 px-3 hover:bg-gray-800 rounded">Contact</a>
+        <a href="#" class="py-2 px-3 flex items-center text-cyan-400 border border-cyan-600 rounded">
+          <i class="fas fa-download mr-2"></i>Download CV
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 pb-16">
+    <!-- HERO -->
+    <section class="min-h-screen flex items-center py-16">
+      <div class="grid md:grid-cols-5 gap-8 items-center w-full">
+        <div class="md:col-span-3" data-aos="fade-right" data-aos-duration="1000">
+          <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-medium text-sm mb-4">
+            <i class="fas fa-robot mr-2"></i>Agentic AI Specialist
+          </div>
+          <h2 class="text-5xl font-extrabold leading-tight">
+            I build <span class="gradient-text">intelligent agents</span> and <span class="gradient-text">RAG</span> systems
+          </h2>
+          <p class="mt-6 text-xl text-gray-300 leading-relaxed">
+            I'm an AI Engineer specializing in multi-agent orchestration, retrieval-augmented generation, and production-ready LLM applications. I design supervisor–worker agent patterns, tool-calling integrations, and resilient event-driven workflows.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white font-semibold shadow-lg hover:shadow-cyan-500/20 transition-all transform hover:-translate-y-1">
+              <i class="fas fa-paper-plane mr-2"></i>Hire Me
+            </a>
+            <a href="#projects" class="px-6 py-3 border border-gray-700 rounded-md hover:border-cyan-500 hover:text-cyan-400 transition-all transform hover:-translate-y-1">
+              <i class="fas fa-code mr-2"></i>View Projects
+            </a>
+          </div>
+
+          <div class="mt-10 grid sm:grid-cols-2 gap-6 text-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800">
+                <i class="fas fa-envelope text-cyan-400"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 font-medium">Email</div>
+                <a href="mailto:descent.hamza153@gmail.com" class="text-cyan-400 hover:underline">descent.hamza153@gmail.com</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800">
+                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 font-medium">Location</div>
+                <div>Rawalpindi, Pakistan</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800">
+                <i class="fab fa-linkedin-in text-cyan-400"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 font-medium">LinkedIn</div>
+                <a href="https://www.linkedin.com/in/muhammad-hamza-401777253" class="text-cyan-400 hover:underline">Connect with me</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800">
+                <i class="fab fa-github text-cyan-400"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 font-medium">GitHub</div>
+                <a href="https://github.com/Hamzajani153" class="text-cyan-400 hover:underline">Hamzajani153</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-2" data-aos="fade-left" data-aos-duration="1000">
+          <div class="p-6 glass rounded-2xl shadow-xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500 rounded-full opacity-10"></div>
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-500 rounded-full opacity-10"></div>
+            
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+              <i class="fas fa-star text-yellow-400 mr-2"></i>Core Expertise
+            </h3>
+            
+            <ul class="space-y-4 relative z-10">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 mt-0.5 flex-shrink-0 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-medium">LangChain · LangGraph · LlamaIndex</span>
+                  <div class="text-sm text-gray-400">Function calling & agent orchestration</div>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 mt-0.5 flex-shrink-0 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-medium">RAG & Vector Search</span>
+                  <div class="text-sm text-gray-400">Pinecone, FAISS, ChromaDB</div>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 mt-0.5 flex-shrink-0 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-medium">Multi-agent Orchestration</span>
+                  <div class="text-sm text-gray-400">Supervisor–Worker patterns & tool-calling</div>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 mt-0.5 flex-shrink-0 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-medium">Backend Development</span>
+                  <div class="text-sm text-gray-400">FastAPI · Docker · AWS (EC2, S3, SageMaker)</div>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 mt-0.5 flex-shrink-0 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-medium">Computer Vision</span>
+                  <div class="text-sm text-gray-400">PyTorch · TensorFlow · YOLOv8 · Detectron2</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-16">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold">
+          <span class="gradient-text">Skills</span> & Technologies
+        </h2>
+        <p class="mt-3 text-gray-400 max-w-2xl mx-auto">
+          My technical expertise spans across AI agent frameworks, RAG systems, and full-stack development
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass rounded-xl p-6" data-aos="fade-right" data-aos-delay="100">
+          <h3 class="text-xl font-bold mb-6 flex items-center">
+            <i class="fas fa-brain text-cyan-400 mr-3"></i>AI & Machine Learning
+          </h3>
+
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">LangChain & LangGraph</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">RAG Systems (Pinecone, FAISS, ChromaDB)</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">Multi-agent Orchestration</span>
+                <span>92%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">OpenAI API & Function Calling</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">PyTorch & TensorFlow</span>
+                <span>85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-6" data-aos="fade-left" data-aos-delay="200">
+          <h3 class="text-xl font-bold mb-6 flex items-center">
+            <i class="fas fa-code text-cyan-400 mr-3"></i>Development
+          </h3>
+
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">Python</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">FastAPI & Flask</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">Docker & AWS</span>
+                <span>85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">JavaScript</span>
+                <span>45%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1 text-sm">
+                <span class="font-medium">Git & CI/CD</span>
+                <span>80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-3 justify-center" data-aos="fade-up" data-aos-delay="300">
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">Python</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">LangChain</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">LangGraph</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">LlamaIndex</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">OpenAI</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">Pinecone</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">FAISS</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">ChromaDB</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">FastAPI</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">Docker</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">AWS</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">PyTorch</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">TensorFlow</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">YOLOv8</span>
+        <span class="px-4 py-2 rounded-full bg-gray-800 text-sm font-medium">Detectron2</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-16">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl font-bold">
+          Featured <span class="gradient-text">Projects</span>
+        </h2>
+        <p class="mt-3 text-gray-400 max-w-2xl mx-auto">
+          Showcase of my work in Agentic AI, RAG systems, and applied machine learning
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Research Pal -->
+        <article class="rounded-xl overflow-hidden glass group transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-48 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-search text-6xl text-white/20 group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-medium">
+                RAG System
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold">Research Pal</h3>
+              <a href="https://researchpal.co/" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="text-gray-400 mb-4">Advanced RAG assistant for academic research with semantic search and context injection.</p>
+            
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-sm text-gray-300">
+                <i class="fas fa-layer-group text-cyan-400"></i>
+                <span class="font-medium">Tech Stack:</span>
+                <span class="text-gray-400">LangChain, Pinecone, ChromaDB, OpenAI, FastAPI, AWS</span>
+              </div>
+              
+              <div class="pt-3 border-t border-gray-800">
+                <ul class="space-y-2 text-sm text-gray-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                    <span>Semantic retrieval with context injection and multi-turn reasoning</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                    <span>Hybrid search (semantic + keyword) to minimize hallucination</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-cyan-400 mt-1"></i>
+                    <span>Scaled embeddings storage and optimized retrieval</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Doojo AI -->
+        <article class="rounded-xl overflow-hidden glass group transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-48 bg-gradient-to-r from-purple-500/20 to-pink-500/20 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-robot text-6xl text-white/20 group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-medium">
+                Multi-Agent System
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold">Doojo AI — Voice Chatbot</h3>
+              <div class="text-sm text-gray-400">LangGraph · AI Agent SDK</div>
+            </div>
+            <p class="text-gray-400 mb-4">Multi-agent voice assistant with supervisor–worker orchestration for complex tasks.</p>
+            
+            <div class="space-y-3">
+              <div class="pt-3 border-t border-gray-800">
+                <ul class="space-y-2 text-sm text-gray-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                    <span>Supervisor decomposes goals; workers handle retrieval, scheduling and API calls</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                    <span>Integrated STT/TTS pipeline; retries & fallback routes for tool failures</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-purple-400 mt-1"></i>
+                    <span>Persistent memory and session trimming for long conversations</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Drake AI -->
+        <article class="rounded-xl overflow-hidden glass group transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-48 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-comments text-6xl text-white/20 group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
+                Conversational AI
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold">Drake AI — Enterprise System</h3>
+              <div class="text-sm text-gray-400">LangChain · LlamaIndex</div>
+            </div>
+            <p class="text-gray-400 mb-4">RAG-backed conversational platform with persistent memory for enterprise use cases.</p>
+            
+            <div class="space-y-3">
+              <div class="pt-3 border-t border-gray-800">
+                <ul class="space-y-2 text-sm text-gray-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-blue-400 mt-1"></i>
+                    <span>Dynamic task chaining and structured tool outputs</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-blue-400 mt-1"></i>
+                    <span>Failover prompts and guardrails for edge-case handling</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-blue-400 mt-1"></i>
+                    <span>Integration with enterprise systems and knowledge bases</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Anna -->
+        <article class="rounded-xl overflow-hidden glass group transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10" data-aos="fade-up" data-aos-delay="400">
+          <div class="h-48 bg-gradient-to-r from-green-500/20 to-teal-500/20 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-camera text-6xl text-white/20 group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-medium">
+                Computer Vision
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold">Anna — Computer Vision Platform</h3>
+              <a href="https://amatdt.aethero.com/" class="text-green-400 hover:text-green-300 transition-colors">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="text-gray-400 mb-4">End-to-end platform for annotating, training, and deploying computer vision models.</p>
+            
+            <div class="space-y-3">
+              <div class="pt-3 border-t border-gray-800">
+                <ul class="space-y-2 text-sm text-gray-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <span>End-to-end annotation tool and model training workflows</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <span>Instance segmentation and detection with deployment-ready pipelines</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <span>Real-time inference and visualization capabilities</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- AI Video Generation -->
+        <article class="rounded-xl overflow-hidden glass group transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10" data-aos="fade-up" data-aos-delay="500">
+          <div class="h-48 bg-gradient-to-r from-red-500/20 to-orange-500/20 relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-film text-6xl text-white/20 group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-medium">
+                Video AI
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold">AI Video Generation — YouTube to Shorts</h3>
+              <div class="text-sm text-gray-400">Deepgram · MoviePy · OpenAI</div>
+            </div>
+            <p class="text-gray-400 mb-4">AI system that transforms YouTube videos into viral shorts based on virality prediction.</p>
+            
+            <div class="space-y-3">
+              <div class="pt-3 border-t border-gray-800">
+                <ul class="space-y-2 text-sm text-gray-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                    <span>Analyzed YouTube video transcripts using Deepgram for STT</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                    <span>Identified high-virality clips using LLM reasoning + heuristics</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-red-400 mt-1"></i>
+                    <span>Generated short viral-ready clips with captions and audio</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- View more projects button -->
+      <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="500">
+        <a href="https://github.com/Hamzajani153" class="inline-flex items-center px-6 py-3 border border-gray-700 rounded-md hover:border-cyan-500 hover:text-cyan-400 transition-all transform hover:-translate-y-1">
+          <i class="fab fa-github mr-2"></i>View More on GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-16 bg-gray-900/50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">
+            Professional <span class="gradient-text">Experience</span>
+          </h2>
+          <p class="mt-3 text-gray-400 max-w-2xl mx-auto">
+            My journey building AI solutions and agent-based systems
+          </p>
+        </div>
+
+        <div class="relative border-l-2 border-gray-700 pl-8 ml-4">
+          <!-- Current Role -->
+          <div class="mb-12 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute -left-[42px] w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+              <div class="w-3 h-3 rounded-full bg-white"></div>
+            </div>
+            <div class="glass rounded-xl p-6 relative">
+              <span class="absolute top-6 right-6 text-xs font-medium px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-400">Current</span>
+              <h3 class="text-xl font-bold mb-1">AI Engineer</h3>
+              <h4 class="text-cyan-400 mb-3">AIOBC</h4>
+              <p class="text-sm text-gray-300 mb-4">Jan 2025 - Present</p>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Developed voice-enabled chatbots with supervisor-worker agent patterns</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Implemented tool-calling capabilities and multi-agent orchestration</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Built RAG workflows with advanced retrieval and context injection</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Integrated computer vision pipelines for real-time inference</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Previous Role 1 -->
+          <div class="mb-12 relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute -left-[42px] w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+              <div class="w-3 h-3 rounded-full bg-white"></div>
+            </div>
+            <div class="glass rounded-xl p-6">
+              <h3 class="text-xl font-bold mb-1">AI Engineer</h3>
+              <h4 class="text-cyan-400 mb-3">Infini8AI</h4>
+              <p class="text-sm text-gray-300 mb-4">Jun 2024 - Sep 2024</p>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Implemented LangChain & LlamaIndex based RAG systems</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Architected FastAPI backends for AI applications</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Deployed cloud-based chatbots on AWS infrastructure</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Previous Role 2 -->
+          <div class="relative" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute -left-[42px] w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+              <div class="w-3 h-3 rounded-full bg-white"></div>
+            </div>
+            <div class="glass rounded-xl p-6">
+              <h3 class="text-xl font-bold mb-1">AI Intern / Developer</h3>
+              <h4 class="text-cyan-400 mb-3">SoftwiseSolution</h4>
+              <p class="text-sm text-gray-300 mb-4">May 2023 - May 2024</p>
+              <ul class="space-y-2 text-gray-400 text-sm">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Built CV models (YOLOv8, Mask R-CNN) for object detection</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Developed training pipelines and data augmentation workflows</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-caret-right text-cyan-400 mt-1"></i>
+                  <span>Created real-time detection systems for production use</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">
+            Client <span class="gradient-text">Testimonials</span>
+          </h2>
+          <p class="mt-3 text-gray-400 max-w-2xl mx-auto">
+            What people say about working with me
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="glass rounded-xl p-6 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute -top-4 -left-4 text-5xl text-cyan-500 opacity-20">❝</div>
+            <div class="relative z-10">
+              <p class="italic text-gray-300 mb-6">
+                "Muhammad's expertise in LangChain and LangGraph was instrumental in bringing our multi-agent AI system to life. His deep understanding of agent orchestration patterns made our complex workflows reliable and performant."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                  MU
+                </div>
+                <div>
+                  <h4 class="font-bold">Muhammad Uzair</h4>
+                  <p class="text-sm text-gray-400">CTO, Octaloop</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="glass rounded-xl p-6 relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute -top-4 -left-4 text-5xl text-cyan-500 opacity-20">❝</div>
+            <div class="relative z-10">
+              <p class="italic text-gray-300 mb-6">
+                "We hired Hamza to implement a RAG system for our enterprise knowledge base. His attention to detail and ability to optimize retrieval quality transformed our customer support operations. Highly recommended!"
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white font-bold">
+                  HA
+                </div>
+                <div>
+                  <h4 class="font-bold">Haseeb Ahmed</h4>
+                  <p class="text-sm text-gray-400">CEO, AIOBC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="glass rounded-xl p-6 relative" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute -top-4 -left-4 text-5xl text-cyan-500 opacity-20">❝</div>
+            <div class="relative z-10">
+              <p class="italic text-gray-300 mb-6">
+                "Working with Hamza on our voice assistant project was a game-changer. His implementation of supervisor-worker patterns and robust error handling made our AI system reliable even in challenging scenarios."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white font-bold">
+                  AS
+                </div>
+                <div>
+                  <h4 class="font-bold">Ali Saqib</h4>
+                  <p class="text-sm text-gray-400">Lead Developer, AIOBC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="glass rounded-xl p-6 relative" data-aos="fade-up" data-aos-delay="400">
+            <div class="absolute -top-4 -left-4 text-5xl text-cyan-500 opacity-20">❝</div>
+            <div class="relative z-10">
+              <p class="italic text-gray-300 mb-6">
+                "Hamza's computer vision expertise helped us build an end-to-end annotation and training platform. His attention to creating deployment-ready pipelines saved us months of engineering time."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-white font-bold">
+                  AQ
+                </div>
+                <div>
+                  <h4 class="font-bold">Dr. Aqib</h4>
+                  <p class="text-sm text-gray-400">Founder & CEO, SoftwiseSolution</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 bg-gray-900/50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">
+            Let's <span class="gradient-text">Connect</span>
+          </h2>
+          <p class="mt-3 text-gray-400 max-w-2xl mx-auto">
+            Open for contract and full-time roles in Agentic AI, LLMs, and RAG projects
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass rounded-xl p-8" data-aos="fade-right">
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+              <i class="fas fa-paper-plane text-cyan-400 mr-3"></i>Get in Touch
+            </h3>
+            
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium mb-2" for="name">Name</label>
+                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Your name">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium mb-2" for="email">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors" placeholder="your.email@example.com">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium mb-2" for="message">Message</label>
+                <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Tell me about your project..."></textarea>
+              </div>
+              
+              <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white font-semibold shadow-lg hover:shadow-cyan-500/20 transition-all transform hover:-translate-y-1">
+                <i class="fas fa-paper-plane mr-2"></i>Send Message
+              </button>
+            </form>
+          </div>
+          
+          <div class="space-y-8" data-aos="fade-left">
+            <div class="glass rounded-xl p-6">
+              <h3 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-info-circle text-cyan-400 mr-3"></i>Contact Information
+              </h3>
+              
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-800">
+                    <i class="fas fa-envelope text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Email</h4>
+                    <a href="mailto:descent.hamza153@gmail.com" class="text-cyan-400 hover:underline">descent.hamza153@gmail.com</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-800">
+                    <i class="fab fa-linkedin-in text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/muhammad-hamza-401777253" class="text-cyan-400 hover:underline">Connect with me</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-800">
+                    <i class="fab fa-github text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">GitHub</h4>
+                    <a href="https://github.com/Hamzajani153" class="text-cyan-400 hover:underline">Hamzajani153</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-gray-800">
+                    <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Location</h4>
+                    <p>Rawalpindi, Pakistan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="glass rounded-xl p-6">
+              <h3 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-bullhorn text-cyan-400 mr-3"></i>Quick Pitch
+              </h3>
+              <p class="text-gray-300 italic">
+                "I'm an AI Engineer with hands-on experience building agentic AI systems, RAG pipelines, and multi-agent orchestration. I build production-ready prototypes and integrate with cloud services and external APIs. Ready for technical tests and demos."
+              </p>
+              <button id="copy-pitch" class="mt-4 flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
+                <i class="fas fa-copy"></i> Copy to clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-sky-500 flex items-center justify-center text-black font-bold text-xl shadow-lg">
+            MH
+          </div>
+        </div>
+        
+        <h3 class="text-xl font-bold">Muhammad Hamza</h3>
+        <p class="text-gray-400 mt-1">AI Engineer — Agentic AI · RAG · LLM Orchestration</p>
+        
+        <div class="mt-6 flex justify-center gap-6">
+          <a href="mailto:descent.hamza153@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+            <i class="fas fa-envelope text-cyan-400"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-hamza-401777253" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+            <i class="fab fa-linkedin-in text-cyan-400"></i>
+          </a>
+          <a href="https://github.com/Hamzajani153" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+            <i class="fab fa-github text-cyan-400"></i>
+          </a>
+        </div>
+        
+        <p class="mt-8 text-gray-500 text-sm">
+          © Muhammad Hamza • Built for Agentic AI roles • Last updated: Aug 2025
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-cyan-500 text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Particles.js for background effect -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <!-- Scripts -->
+  <script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+      
+      // Initialize particles.js
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: '#06b6d4' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#06b6d4',
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: 'none',
+            random: true,
+            straight: false,
+            out_mode: 'out'
+          }
+        }
+      });
+      
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+      
+      // Back to top button
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+          } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+          }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+      
+      // Copy pitch to clipboard
+      const copyPitchButton = document.getElementById('copy-pitch');
+      
+      if (copyPitchButton) {
+        copyPitchButton.addEventListener('click', () => {
+          const pitchText = copyPitchButton.previousElementSibling.textContent;
+          
+          navigator.clipboard.writeText(pitchText)
+            .then(() => {
+              const originalText = copyPitchButton.innerHTML;
+              copyPitchButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+              
+              setTimeout(() => {
+                copyPitchButton.innerHTML = originalText;
+              }, 2000);
+            })
+            .catch(err => {
+              console.error('Failed to copy: ', err);
+            });
+        });
+      }
+      
+      // Form submission handling
+      const contactForm = document.getElementById('contact-form');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const nameInput = document.getElementById('name');
+          const emailInput = document.getElementById('email');
+          const messageInput = document.getElementById('message');
+          
+          // Simple validation
+          if (!nameInput.value || !emailInput.value || !messageInput.value) {
+            alert('Please fill in all fields');
+            return;
+          }
+          
+          // Normally you would send this to a backend, but for demo:
+          alert(`Thank you for your message, ${nameInput.value}! I'll get back to you soon.`);
+          contactForm.reset();
+        });
+      }
+      
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const icon = themeToggle.querySelector('i');
+      
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            icon.classList.remove('text-yellow-400');
+            icon.classList.add('text-gray-700');
+          } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            icon.classList.remove('text-gray-700');
+            icon.classList.add('text-yellow-400');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

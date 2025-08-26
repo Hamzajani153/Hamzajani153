@@ -1,71 +1,98 @@
-# 👋 Hi, I'm Hamza!
+# Hi, I'm Muhammad Hamza — AI Engineer (Agentic AI • RAG • LLM Orchestration)
 
-
-## 🚀 About Me
-
-I'm a passionate **Python Developer** and **AI Engineer** with extensive experience in building and deploying scalable AI solutions. My skills include:
-
-- 🐍 Python
-- ☁️ AWS
-- 🐳 Docker
-- ⚡ FastAPI
-- 🤖 Deep Learning & Machine Learning Frameworks (TensorFlow, PyTorch, Keras)
-
-## 🛠️ Skills
-
-- **Programming Languages**: ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-- **Frameworks and Libraries**:
-  ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-  ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-  ![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
-  ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-- **Cloud Services**:
-  ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-- **Containerization**:
-  ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-## 🌟 Projects
-
-### 1. [IoT-Based Intelligent Door](https://github.com/yourusername/iot-intelligent-door)
-- **Description**: Developed an intelligent door system that utilizes IoT sensors and cameras to enhance home security. The system incorporates object detection to identify individuals and objects near the door and sends alerts to the homeowner's mobile app.
-- **Technologies Used**: Python, TensorFlow, OpenCV, AWS IoT, Docker,FastApi,Dlib(face-recognition)
-- **Features**:
-  - Real-time object detection using a camera.
-  - Integration with AWS IoT for cloud-based monitoring and alerts.
-  - Mobile app notifications.
-
-### 2. [Vehicle Detection System](https://github.com/yourusername/vehicle-detection-system)
-- **Description**: Developed a vehicle detection system that identifies vehicles and their license plate numbers, storing the information in a database. This system is useful for parking management, traffic monitoring, and security applications.
-- **Technologies Used**: Python, OpenCV, TensorFlow, FastAPI, DataBase, Docker
-- **Features**:
-  - Real-time vehicle detection and license plate recognition.
-  - Secure storage of vehicle data in a database.
-
-## 📫 Connect with Me
-
-- LinkedIn: [LinkedIn](https:www.linkedin.com/in/muhammad-hamza-401777253)
-- Email: [Email](mailto:descent.hamza153@gmail.com)
-- Personal Website: [Website](https://yourwebsite.com)
-
-## 📈 GitHub Stats
-
-![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=radical)
-
-## 🏆 Achievements
-
-- [Achievement 1]
-- [Achievement 2]
-- [Achievement 3]
-
-## 📝 Blog Posts
-
-- [Blog Post 1](https://yourblog.com/blogpost1)
-- [Blog Post 2](https://yourblog.com/blogpost2)
-- [Blog Post 3](https://yourblog.com/blogpost3)
+I build **agentic AI systems** and **RAG** pipelines for real-world products. My focus areas:
+- **Multi-agent orchestration** (supervisor–worker, dynamic planning, tool calling)
+- **Retrieval-Augmented Generation (RAG)** with vector databases
+- **LLM apps** with **LangChain / LangGraph / LlamaIndex** and **OpenAI function calling**
+- **Applied AI integration**: FastAPI backends, AWS deployments, voice (STT/TTS), and CV pipelines
 
 ---
 
-Thank you for visiting my GitHub profile! Feel free to reach out if you'd like to collaborate on any projects or if you have any questions.
+## Core Skills 
+- **Languages:** Python (primary), TypeScript/Node.js (basic)
+- **Agent Frameworks:** LangChain, **LangGraph**, LlamaIndex, AI Agent SDK, OpenAI Function Calling  
+- **Agentic Patterns:** Tool usage, dynamic planning, **goal decomposition & task chaining**, memory persistence & context injection, **self-healing workflows**, failover strategies, agent state monitoring
+- **RAG & Vectors:** Pinecone, Chromadb, FAISS, embeddings on S3
+- **Backend :** **FastAPI**, Flask, Docker, AWS (EC2, S3, SageMaker), Git
+- **Event-driven :** Kafka/RabbitMQ style orchestration, webhooks, queues
+- **ML/CV:** PyTorch, TensorFlow, YOLOv8, Detectron2, Mask R-CNN
 
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=yourusername.yourusername)
+---
+
+## 🚀 Highlight Projects (What I actually built)
+
+### 1) Research Pal — Advanced **RAG** Assistant  
+**Live:** https://researchpal.co/  
+**Stack:** LangChain, Pinecone/Chromadb, OpenAI, FastAPI, AWS  
+**What it does:** Semantic retrieval over academic papers with **context injection**, multi-turn reasoning, and structured outputs.  
+**Agent Design:** Retrieval tool + reasoning agent; hybrid search (semantic + keyword) to reduce hallucination.  
+**Challenges & Fixes:** Scaling retrieval → optimized chunking/embeddings; ambiguity → intent routing + disambiguation prompts.
+
+---
+
+### 2) Doojo AI — **Voice AI** Chatbot with **Multi-Agent Orchestration**  
+**Stack:** LangGraph, AI Agent SDK, OpenAI, STT/TTS, FastAPI  
+**What it does:** Supervisor–worker agents handle availability checks, booking flows, and tool-calling.  
+**Agent Design:**  
+- **Supervisor**: interprets goals, decomposes tasks  
+- **Workers**: retrieval, scheduling, API calls  
+- **Memory**: persistent convo state + vector recall  
+**Challenges & Fixes:** Tool failures → retry/backoff + fallback routes; long sessions → session memory trimming & relevant context refresh.
+
+---
+
+### 3) Drake AI — Enterprise Conversational System (**RAG + Memory**)  
+**Stack:** LangChain, LlamaIndex, OpenAI, FastAPI, AWS  
+**What it does:** Knowledge-grounded chat with **persistent memory** and **task chaining** for enterprise FAQs and workflows.  
+**Highlights:** Structured tool outputs, context windows managed via memory stores, failover prompts for edge cases.
+
+---
+
+### 4) Anna — Computer Vision Platform (Annotation → Training → Inference)  
+**Stack:** YOLOv8, Detectron2, Mask R-CNN, FastAPI, Docker  
+**What it does:** End-to-end platform to annotate datasets and train CV models with clean deployment workflows.  
+
+---
+
+## 🧠 Architecture Patterns I Use
+- **Toolformer-style tool usage** with **OpenAI function calling**  
+- **RAG pipelines** with query planning, re-ranking, and **context injection**  
+- **Self-healing workflows**: retries, fallbacks, guardrails
+- **State & Memory**: vector recall + short-term convo buffers  
+- **Event-driven**: background tasks/queues, webhook triggers, Kafka/RabbitMQ patterns 
+
+---
+
+## 📚 Code & Repos (Selected)
+> I’m actively organizing code for public view. In the meantime:
+- 🔗 **GitHub:** https://github.com/Hamzajani153  
+- 🔗 **Research Pal (live):** https://researchpal.co/  
+- (Optional) Repos to publish soon:
+  - `agentic-voice-bot` — LangGraph multi-agent + TTS/STT + tool-calling
+  - `enterprise-rag-starter` — LangChain + FAISS/Pinecone + FastAPI
+  - `agent-tools-kit` — function-calling tool wrappers (search/db/llm)
+
+---
+
+## 🛠️ Tech I Work With
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-0B3B61?logo=chainlink&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-222222?logo=graphql&logoColor=white)
+![LlamaIndex](https://img.shields.io/badge/LlamaIndex-1B6AC6?logo=semantic-web&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=white)
+![Pinecone](https://img.shields.io/badge/Pinecone-0A6A90?logo=pine64&logoColor=white)
+![Chromadb](https://img.shields.io/badge/FAISS-20232A?logo=databricks&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?logo=apachekafka&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?logo=rabbitmq&logoColor=white)
+
+---
+
+## 📬 Contact
+- **Email:** descent.hamza153@gmail.com  
+- **LinkedIn:** https://www.linkedin.com/in/muhammad-hamza-401777253  
+- **Location:** Rawalpindi, Pakistan  
+- **Portfolio (optional):** https://your-portfolio.com
